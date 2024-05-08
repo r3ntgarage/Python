@@ -1,0 +1,55 @@
+from tkinter import *
+from tkinter import messagebox as msb
+
+def Vypocet():
+    if promenna.get() == parametry[0]:
+        x = int(cislo.get())
+        y = int(cislo2.get())
+        vypis["text"]=str(x+y)
+    elif promenna.get() == parametry[1]:
+        x = int(cislo.get())
+        y = int(cislo2.get())
+        vypis["text"]=str(x-y) 
+    elif promenna.get() == parametry[2]:
+        x = int(cislo.get())
+        y = int(cislo2.get())
+        vypis["text"]=str(x*y) 
+    elif promenna.get() == parametry[3]:
+        x = int(cislo.get())
+        y = int(cislo2.get())
+        if x == 0 or y == 0:
+            msb.showerror("Pozor","Nulou nelze dělit")
+        else:
+            vypis["text"]=str(x/y) 
+
+hlavni=Tk()
+hlavni.title("Počítání")
+
+parametry = ["součet","rozdíl","součin","podíl"]
+
+c = StringVar()
+c.set("0")
+c2 = StringVar()
+c2.set("0")
+
+promenna = StringVar()
+promenna.set(parametry[0])
+
+cislo = Spinbox(hlavni,from_=-100,to=100,textvariable=c)
+cislo.pack(padx=10)
+
+cislo2 = Spinbox(hlavni,from_=-100,to=100,textvariable=c2)
+cislo2.pack(padx=10)
+
+vypis = Label(hlavni,text="0",font="Arial 20")
+vypis.pack(padx=10)
+
+vyber = OptionMenu(hlavni,promenna,*parametry)
+vyber.configure(width=7)
+vyber.pack(padx=10)
+
+akce=Button(hlavni,text="Počítej",width=6,command=Vypocet)
+akce.pack(padx=10,pady=3)
+
+
+hlavni.mainloop()
