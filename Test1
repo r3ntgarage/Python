@@ -1,0 +1,92 @@
+#1
+
+"""
+def vypocet_prepravy(pocet_km, pocet_palet, typ_prepravy):
+    if pocet_palet <= 18:
+        cena_km = 35
+        naves = "Návěs - 6t"
+    elif pocet_palet <= 28:
+        cena_km = 50
+        naves = "Návěs - 24t"
+    else:
+        cena_km = 60
+        naves = "Návěs - Mega"
+    
+    if typ_prepravy == "expres":
+        cena_km *= 1.2
+    
+    cena_celkem = cena_km * pocet_km
+    return cena_celkem, naves
+
+print("Výpočet ceny dopravy: ")
+
+pocet_km = float(input("Zadejte počet kilometrů pro přepravu: "))
+pocet_palet = int(input("Zadejte počet přepravovaných palet: "))
+typ_prepravy = input("Zvolte rychlost přepravy (standard/expres): ").lower()
+
+if pocet_palet > 33:
+    print("Více než 33 palet nelze přepravit.")
+else:
+    cena, naves = vypocet_prepravy(pocet_km, pocet_palet, typ_prepravy)
+    print(f"Přeprava : {naves}, Cena přepravy: {cena} Kč")
+"""
+
+#2
+
+"""
+x = int(input("Zadejte počet členů Fibonacciho posloupnosti: "))
+y = [0,1]
+for i in range(x-2):
+    y.append(y[-1]+y[-2])
+    print(y)
+"""
+
+#3
+
+
+def max_value(cisla):
+    return max(cisla)
+
+def min_value(cisla):
+    return min(cisla)
+
+def avg_value(cisla):
+    return sum(cisla) / len(cisla)
+
+input_cisla = input("Zadejte seznam čísel oddělených mezerou: ")
+cisla = [float(x) for x in input_cisla.split()]
+
+max_c = max_value(cisla)
+min_c = min_value(cisla)
+avg_c = avg_value(cisla)
+
+print(f"Maximální hodnota: {max_c}")
+print(f"Minimální hodnota: {min_c}")
+print(f"Průměrná hodnota: {avg_c}")
+
+
+#4
+
+"""
+print("Generátor seznamu bez samohlásek: ")
+x = input("Zadej seznam slov (Mezi slovy tvoř mezery!): ")
+y = x.split()
+
+def odstran_samohlasky(slovo):
+    samohlasky = "AEIOUaeiou"
+    bez_samohlasek = ""
+    for znak in slovo:
+        if znak not in samohlasky:
+            bez_samohlasek += znak
+    return bez_samohlasek
+
+nova_slova_list = [odstran_samohlasky(slovo) for slovo in y]
+
+nova_slova = nova_slova_list[0]
+for slovo in nova_slova_list[1:]:
+    nova_slova += " " + slovo
+
+print(f"Nový seznam slov bez samohlásek: {nova_slova}")
+"""
+
+#5
