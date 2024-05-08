@@ -1,0 +1,98 @@
+from tkinter import *
+import random as rn
+
+#Př.1:
+
+hlavni = Tk()
+hlavni.title("Prohodit")
+hlavni.geometry("400x300")
+hlavni.minsize(450,350)
+hlavni.maxsize(450,350)
+
+def Prohodit():
+        x = rn.randint(1,400)
+        y = rn.randint(1,400)
+        z = rn.randint(1,400)
+        a = rn.randint(1,300)
+        b = rn.randint(1,300)
+        c = rn.randint(1,300)
+        akce1.place(x=x,y=a)
+        akce2.place(x=y,y=b)
+        akce3.place(x=z,y=c)
+akce1=Button(hlavni,text="Konec",width=10,command=hlavni.destroy)
+akce1.place(x=rn.randint(1,400),y=rn.randint(1,300))
+
+akce2=Button(hlavni,text="Konec",width=10,command=hlavni.destroy)
+akce2.place(x=rn.randint(1,400),y=rn.randint(1,300))
+
+akce3=Button(hlavni,text="Konec",width=10,command=hlavni.destroy)
+akce3.place(x=rn.randint(1,400),y=rn.randint(1,300))
+
+akce4=Button(hlavni,text="Prohodit",width=10,command=Prohodit)
+akce4.place(x=10,y=10)
+
+
+
+hlavni.mainloop()
+
+
+#Př.2:
+
+hlavni=Tk()
+hlavni.title("Počítáni")
+
+def Soucet():
+    x = float(vstup1.get())
+    y = float(vstup2.get())
+    kontrola["text"]="Výsledek ="+str(x+y)
+    vstup1.select_range(0,END)
+
+def Rozdil():
+    x = float(vstup1.get())
+    y = float(vstup2.get())
+    kontrola["text"]="Výsledek ="+str(x-y)
+    vstup1.select_range(0,END)
+
+def Soucin():
+    x = float(vstup1.get())
+    y = float(vstup2.get())
+    kontrola["text"]="Výsledek ="+str(x*y)
+    vstup1.select_range(0,END)
+
+def Podil():
+    x = float(vstup1.get())
+    y = float(vstup2.get())
+    if y==0:
+        kontrola["text"]="Nulou nelze dělit!"
+    else:
+        kontrola["text"]="Výsledek ="+str(x/y)
+        vstup1.select_range(0,END)
+
+jmeno = Label(hlavni,text="Číslo 1: ")
+jmeno.grid()
+
+prijmeni = Label(hlavni,text="Číslo 2: ")
+prijmeni.grid(row=1)
+
+vstup1=Entry(hlavni)
+vstup1.grid(row=0,column=1,padx=5,pady=5)
+
+vstup2=Entry(hlavni)
+vstup2.grid(row=1,column=1,padx=5,pady=5)
+
+kontrola = Label(hlavni,text="Výsledek =")
+kontrola.grid(row=5,columnspan=2,sticky=W+E,pady=5)
+
+akce1=Button(hlavni,text="Součet",width=10,command=Soucet)
+akce1.grid(row=3,sticky=W,padx=3,pady=5)
+
+akce2=Button(hlavni,text="Součin",width=10,command=Soucin)
+akce2.grid(row=3,column=1,sticky=E,padx=3,pady=5)
+
+akce3=Button(hlavni,text="Rozdíl",width=10,command=Rozdil)
+akce3.grid(row=4,sticky=W,padx=3,pady=5)
+
+akce4=Button(hlavni,text="Podíl",width=10,command=Podil)
+akce4.grid(row=4,column=1,sticky=E,padx=3,pady=5)
+
+hlavni.mainloop()
