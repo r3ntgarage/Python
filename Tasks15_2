@@ -1,0 +1,57 @@
+from tkinter import *
+hlavni=Tk()
+hlavni.title("Počítáni se 2 čísly") 
+
+def Soucet():
+    x = float(vstup.get())
+    y = float(vstup2.get())
+    vystup["text"]="Výsledek ="+str(x+y)
+    vstup.select_range(0,END)
+
+def Rozdil():
+    x = float(vstup.get())
+    y = float(vstup2.get())
+    vystup["text"]="Výsledek ="+str(x-y)
+    vstup.select_range(0,END)
+
+def Soucin():
+    x = float(vstup.get())
+    y = float(vstup2.get())
+    vystup["text"]="Výsledek ="+str(x*y)
+    vstup.select_range(0,END)
+
+def Podil():
+    x = float(vstup.get())
+    y = float(vstup2.get())
+    if y==0:
+        vystup["text"]="Nulou nelze dělit!"
+    else:
+        vystup["text"]="Výsledek ="+str(x/y)
+        vstup.select_range(0,END)
+
+    
+ram = Frame(hlavni,width=100,height=50,relief="sunken",bd=3,padx=10,pady=10)
+ram.pack(padx=5,pady=5)
+
+vstup = Entry(ram)
+vstup.pack(side="left",padx=5,pady=5)
+vstup.focus_set()
+
+vystup = Label(hlavni,text="Výsledek =",width=15)
+vystup.pack(padx=5,pady=5)
+
+vyp= Button(ram,text="+",width=2,command=Soucet)
+vyp.pack(side="left",padx=5,pady=5)
+
+vyp= Button(ram,text="-",width=2,command=Rozdil)
+vyp.pack(side="left",padx=5,pady=5)
+vyp= Button(ram,text="*",width=2,command=Soucin)
+vyp.pack(side="left",padx=5,pady=5)
+vyp= Button(ram,text="/",width=2,command=Podil)
+vyp.pack(side="left",padx=5,pady=5)
+
+vstup2 = Entry(ram)
+vstup2.pack(side="left",padx=5,pady=5)
+vstup2.focus_set()
+
+hlavni.mainloop()
