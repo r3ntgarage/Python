@@ -1,0 +1,56 @@
+from tkinter import*
+import random as rn
+
+hlavni = Tk()                 
+hlavni.title("Kalkulačka s random čísly")        
+hlavni.geometry("400x400")
+hlavni.minsize(300,300)         
+hlavni.maxsize(500,500)         
+
+def Soucet():
+    x = rn.randint(1,1000)
+    y = rn.randint(1,1000)
+    vypis["text"]=f"{x}+{y}={x+y}"
+    vypis["fg"]="green"
+    vypis["bg"]="grey"
+
+def Rozdil():
+    x = rn.randint(1,1000)
+    y = rn.randint(1,1000)
+    vypis["text"]=f"{x}-{y}={x-y}"
+    vypis["fg"]="red"
+    vypis["bg"]="grey"
+
+def Soucin():
+    x = rn.randint(1,1000)
+    y = rn.randint(1,1000)
+    vypis["text"]=f"{x}*{y}={x*y}"
+    vypis["fg"]="blue"
+    vypis["bg"]="grey"
+
+def Podil():
+    x = rn.randint(1,1000)
+    y = rn.randint(1,1000)
+    vypis["text"]=f"{x}:{y}={x/y}"
+    vypis["fg"]="purple"
+    vypis["bg"]="grey"
+
+vypis = Label(hlavni,text="0",fg="white",bg="grey",width=40,height=5)
+vypis.pack(padx=20,pady=10)
+
+
+soucet = Button(hlavni,text="Součet",width=10,height=2,command=Soucet)
+soucet.pack(padx=20,pady=5)
+
+rozdil = Button(hlavni,text="Rozdil",width=10,height=2,command=Rozdil)
+rozdil.pack(padx=20,pady=5)
+
+soucin = Button(hlavni,text="Součin",width=10,height=2,command=Soucin)
+soucin.pack(padx=20,pady=5)
+
+podil = Button(hlavni,text="Podíl",width=10,height=2,command=Podil)
+podil.pack(padx=20,pady=5)
+
+konec = Button(hlavni,text="Konec",width=10,height=2,command=hlavni.destroy)
+konec.pack(padx=20,pady=5)
+hlavni.mainloop()
