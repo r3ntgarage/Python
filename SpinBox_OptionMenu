@@ -1,0 +1,98 @@
+#Spinbox
+"""
+from tkinter import *
+
+def Nastav():
+    #vypis["text"]=cislo.get()
+    vypis["text"]=c.get()   #s pripojenou promennou
+
+hlavni=Tk()
+
+c = StringVar()
+c.set("0")
+
+#cislo = Spinbox(hlavni,from_=-50,to=1000, increment=2, command=Nastav)   #od, do
+cislo = Spinbox(hlavni, values=(1,2,5,7,9,11), textvariable=c) #specifikace hodnot
+cislo.pack(padx=10,pady=10)
+
+vypis = Label(hlavni,text="0",font="Arial 20")
+vypis.pack(padx=10,pady=10)
+
+
+hlavni.mainloop()
+
+
+#OptionMenu
+
+from tkinter import *
+
+def Nastav(hodnota):
+    #vystup["text"]=promenna.get()
+    vystup["text"]=hodnota
+
+hlavni=Tk()
+
+promenna = StringVar()
+promenna.set("jedna")
+
+vyber = OptionMenu(hlavni,promenna,"jedna","dva","tři", command=Nastav)
+vyber.configure(width=10)
+vyber.pack(padx=10,pady=10)
+
+vystup = Label(hlavni,text="jedna",font="Cambria 12")
+vystup.pack(padx=10,pady=10)
+
+
+hlavni.mainloop()
+"""
+"""
+#OptionMenu - seznam parametrů
+
+from tkinter import *
+
+
+hlavni=Tk()
+
+parametry = ["první","druhý","třetí"]
+
+promenna = StringVar()
+promenna.set(parametry[0])
+
+vyber = OptionMenu(hlavni,promenna)
+vyber.configure(width=10)
+vyber.pack(padx=10,pady=10)
+
+vystup = Label(hlavni,text="jedna",font="Cambria 12")
+vystup.pack(padx=10,pady=10)
+
+
+hlavni.mainloop()
+"""
+
+#Příklad kurzovní lístek
+
+from tkinter import *
+
+mena=[]
+soubor=open("listek.txt","r")
+while True:
+    kod=soubor.read(3)
+    mena.append(kod)
+    soubor.readline()
+    if kod==" ":
+        break
+soubor.close()
+mena.pop()
+print(mena)
+
+
+hlavni = Tk()
+
+prom = StringVar()
+
+
+vyber = OptionMenu(hlavni,prom)
+vyber.pack()
+
+
+hlavni.mainloop()
