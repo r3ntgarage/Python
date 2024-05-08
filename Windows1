@@ -1,0 +1,59 @@
+from tkinter import *
+
+
+"""
+def Akce():
+    #print("kliknul jsi!")
+    #napis.configure(text="Nazdar", fg="red")
+    napis["text"]=napis["text"]+"!"
+    napis["fg"]="blue"
+
+hlavni = Tk()           #vytvoreni okna
+hlavni.title("Okno 1")          #titulek
+hlavni.geometry("400x300")      #výchozí velikost okna
+hlavni.minsize(300,300)         #min velikost okna
+hlavni.maxsize(500,500)         #max velikost okna
+
+#hlavni.resizable(FALSE,FALSE)   #zakaz zmeny velikosti okna
+
+hlavni.configure(bg="grey")    #barva pozadi bg=
+
+napis = Label(hlavni,text="123456789",font="Arial 12 bold")
+napis.pack(padx=20,pady=20)
+
+napis2 = Label(hlavni,text="druhý nápis",bg="lime", fg="green", width=10,height=2,relief="sunken")
+napis2.pack(pady=10)
+
+s = "Toto je dlouhý text pro zalomení a zarovnání"
+napis3 = Label(hlavni, text=s, wraplength=100, justify="left")
+napis3.pack(pady=10)
+
+akce = Button(hlavni,text="akce",width=10, command=Akce )
+akce.pack(pady=10)
+
+konec = Button(hlavni,text="Konec",width=10, command=hlavni.destroy)
+konec.pack(pady=10)
+
+
+hlavni.mainloop()               #čekání na uživatele
+"""
+
+import random as rn
+
+#Př.: Druhá mocnina náhodného čísla
+
+def mocnina():
+    x = rn.randint(1,10)
+    vypis["text"]=f"{x}^2 = {x**2}"
+    vypis["fg"]="green"
+    vypis["bg"]="lightgreen"
+
+hlavni = Tk()
+
+vypis = Label(hlavni,text="0",fg="blue",bg="lightblue")
+vypis.pack(padx=20,pady=10)
+
+mocnina = Button(hlavni,text="druhá \nmocnina", width=10, height=2, command=mocnina)
+mocnina.pack(padx=20, pady=10)
+
+hlavni.mainloop()
