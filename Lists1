@@ -1,0 +1,100 @@
+# Seznamy se píší do [ ]
+"""
+seznam=[]                                       #prázdný seznam
+print(seznam)
+
+seznam=[3,"text",3.5]
+print(seznam)
+
+print(seznam[0])                                #vypis prvku s indexem 0
+
+seznam=[2]="Středa"                             #přiřazení do seznamu
+
+seznam2=seznam+seznam                           #sčítání seznamů
+
+seznam3=seznam*3                                #násobení seznamu celým číslem
+
+seznam=[0,1,2,3,4,5,6,7,8,9]
+print(seznam[:4])
+print(seznam[4:])
+print(seznam[-4:])
+
+"""
+"""
+# Funkce a metody
+
+ovoce=["jablka","hrušky","třešně"]
+
+#přidání do seznamu
+ovoce.append("maliny")
+print(ovoce)
+
+ovoce.insert(1,"meruňky")                       #vkládá prvek na konkrétní pozici
+print(ovoce)
+
+#odstranění ze seznamu
+ovoce.pop()                                     #poslední ze seznamu
+print(ovoce)
+
+ovoce.pop(2)
+print(ovoce)
+
+ovoce.remove("třešně")
+print(ovoce)
+
+if "jahody" in ovoce:                           #odebrání s ochranou
+    ovoce.remove("jahody")
+
+print(ovoce.count("maliny"))                    #četnost prvku
+
+ovoce.sort()                                    #řažení seznamu
+print(ovoce)
+
+ovoce.reverse()                                 #otočení 
+
+print(len(ovoce))                               #délka seznamu
+
+#procházení seznamu
+
+ovoce=["jablka","hrušky","třešně"]
+for i in ovoce:
+    print("Mé oblíbené ovoce: ", i)
+    x=ovoce.index(i)
+    print("V seznamu je na ", x+1,"místě ")
+
+for i in range(len(ovoce)):
+    print("Mé oblíbené ovoce: ",ovoce [i])
+    print("V seznamu je na", i+1,"místě")   
+
+"""
+
+#Př.1: Načtěte z klávesnice seznam 5 čísel a vypište ho
+"""
+seznam=[]
+for i in range(5):
+    x=int(input("Zadejte číslo: "))
+    seznam.append(x)
+print(seznam)
+"""
+
+#Př.2: Vytvoření seznamu 10 náhodných čísel od -100 do 100
+import random as rnd
+
+seznam2=[]
+for i in range(10):
+    seznam2.append(rnd.randint(-100,100))
+print(seznam2)
+
+#Př.3: Ze seznamu2 vytvořte seznam s dvojnásobky čísel
+
+seznamd=[]
+for i in seznam2:
+    seznamd.append(i*2)
+print(seznamd)
+
+#Př.4: Ze seznamud vytvořte seznam kladných
+seznamk=[]
+for i in seznamd:
+    if i>0:
+        seznamk.append(i)
+print(seznamk)
