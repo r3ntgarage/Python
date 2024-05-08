@@ -1,0 +1,40 @@
+#Př.1:
+import random as rn
+from tkinter import *
+
+
+
+
+def Vypis():
+    hlavni.after(1000,Vypis)
+    text["bg"] = f"#{rn.randint(0,255):02x}{rn.randint(0,255):02x}{rn.randint(0,255):02x}"
+
+hlavni=Tk()
+
+text=Text(hlavni,font="Arial 20")
+text.pack()
+Vypis()
+
+hlavni.mainloop()
+
+#Př.2:
+"""
+from tkinter import *
+from datetime import *
+
+def Vypis():
+    dnes = datetime.now()
+    text.delete(1.0,END)
+    text.insert(END,f"{dnes.hour:02d}:{dnes.minute:02d}:{dnes.second:02d}")
+    hlavni.after(100,Vypis)
+
+hlavni=Tk()
+hlavni.minsize(200,100)
+hlavni.maxsize(200,100)
+text=Text(hlavni,font="Arial 20")
+text.pack(padx=44,pady=33)
+
+Vypis()
+
+hlavni.mainloop()
+"""
