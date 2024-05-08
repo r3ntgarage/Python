@@ -1,0 +1,60 @@
+#Spojnicový graf napětí u RC obvodu
+
+from tkinter import *
+from tkinter import messagebox as msb 
+import pylab as py 
+
+#Funkce pro vykreslení grafu
+
+def Graf():
+    R = float(odpor.get())
+    C = float(kapacita.get())*0.000001
+    U = float(napeti.get())
+    if R==0 or C==0:        #ověření sestrojitelnosti grafu
+        msb.showwarning("Pozor!", "Graf nelze sestrojit!")
+    else:
+        #Vygenerování hodnot pro osu X
+        x = py.arange(0,5*R*C,5*R*C/50)
+        #Vygenerování hodnot pro osu Y
+        y = []
+        for i in x:
+            y.append(U*(1-py.e**((-i)/(R*C))))
+        py.title("Graf nabití kondenzátoru")
+        py.xlabel("t[s]")
+        py.ylabel("U[V]")
+        py.plot(x,y)
+        py.grid(True)
+        py.show()
+
+hlavni=Tk()
+
+#proměnné
+
+odpor = StringVar()
+kapacita = StringVar()
+napeti = StringVar()
+
+#Vzhled
+
+ram = LabelFrame(hlavni, text="Graf nabití kondenzátoru", bd=2,relief="ridge", padx=5, pady=5)
+ram.pack(padx=5, pady=5)
+
+popisR = Label(ram, text="Zadej R [Ohm]", font="Calibri 10")
+popisR.grid()
+vstupR = Entry(ram,textvariable=odpor)
+vstupR.grid(row=1, padx=5)
+
+popisC = Label(ram, text="Zadej C [uF]", font="Calibri 10")
+popisC.grid(row=2)
+vstupC = Entry(ram,textvariable=kapacita)
+vstupC.grid(row=3, padx=5)
+
+popisU = Label(ram, text="Zadej U [V]", font="Calibri 10")
+popisU.grid(row=4)
+vstupU = Entry(ram,textvariable=napeti)
+vstupU.grid(row=5, padx=5)
+
+graf = Button(ram, text="Vytvoř \ngraf", font="Calibri 12 bold", command=Graf)
+graf.grid(row=0, column=1, rowspan=6, sticky=N+S, padx=5)
+
+hlavni.mainloop()
