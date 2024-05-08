@@ -1,0 +1,72 @@
+from tkinter import *
+
+
+"""
+def smazat():
+    #vstup.delete(0,END)        #smaže vše
+    #vstup.delete(0)             #smaže jeden znak
+    #vstup.delete(0, INSERT)     #maže text od začatku do místa kurzoru
+    x = len(vstup.get())
+    vstup.delete(x-1,x)         #maže poslední znak
+
+def vlozit():
+    vstup.insert(0,"Něco jiného")   #vkládá na začátek
+
+def oznacit():
+    vstup.select_range(0,END)
+
+def zobrazit():
+    vystup["text"]=vstup.get()      #get vrací hodnotu komponenty
+
+hlavni = Tk()
+
+vstup = Entry(hlavni, width=20, font="Arial 12",bd=3)
+vstup.pack(padx=5,pady=5)
+vstup.focus_set()               #kurzor nastaveny
+
+
+vystup = Label(hlavni, text="vystup", font="Arial 15")
+vystup.pack(padx=5,pady=5)
+
+akce = LabelFrame(hlavni, text="Akce", bd=2, relief="ridge")
+akce.pack(padx=5,pady=5)
+
+smazat = Button(akce, text="Smaž", width=10, command = smazat)
+smazat.pack(padx=5,pady=5)
+
+vlozit = Button(akce, text="Vlož", width=10, command = vlozit)
+vlozit.pack(padx=5,pady=5)
+
+oznacit = Button(akce, text="Oznacit", width=10, command = oznacit)
+oznacit.pack(padx=5,pady=5)
+
+zobrazit = Button(akce, text="Zobrazit", width=10, command = zobrazit)
+zobrazit.pack(padx=5,pady=5)
+
+
+hlavni.mainloop()
+
+"""
+
+def Mocnina():
+    x = float(vstup.get())
+    vystup["text"]=str(x**2)
+    vstup.select_range(0,END)
+
+hlavni = Tk()
+
+ram = Frame(hlavni,width=10, height=50, relief="sunken", bd=3, padx=10, pady=10)
+ram.pack(padx=5, pady=5)
+
+vstup = Entry(ram)
+vstup.pack(side="left",padx=5,pady=5)
+
+vystup = Label(ram, text="Vysledek", width=15)
+vystup.pack(side="left", padx=5,pady=5)
+
+vyp = Button(hlavni, text="Druhá mocnina", width = 15, command=Mocnina)
+vyp.pack(padx=5, pady=5)
+
+
+
+hlavni.mainloop()
