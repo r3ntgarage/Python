@@ -1,0 +1,78 @@
+"""
+nazev = "prvnisoubor.txt"
+soubor = open(nazev, "w")
+vstup = input("Zadejte text: ")
+soubor.write(vstup)
+soubor.close()
+"""
+
+"""
+nazev = "prvnisoubor.txt"
+soubor = open(nazev, "a")
+vstup = input("Zadejte text: ")
+soubor.write(vstup)
+soubor.close()
+"""
+
+#Metody pro práci se soubory
+#Zápis
+
+"""
+soubor = open("prvnisoubor.txt", "r+")
+s = ["A","B","\n","C","D"]
+soubor.writelines(s)
+
+#pozice v souboru
+pozice = soubor.tell()
+print(pozice)
+
+#Presun na pozici
+soubor.seek(5,0)    #posun o 5 od zacatku
+soubor.write("****")
+
+
+soubor.close()
+
+"""
+"""
+
+#čtení ze souboru
+soubor = open("text.txt","r")
+seznam = soubor.readlines()
+print(seznam)
+
+soubor.seek(0,0)
+radek = soubor.readline()
+print(radek)
+dalsi = soubor.readline()
+print(dalsi)
+
+vse = soubor.read()
+print(vse)
+
+soubor.seek(0,0)
+cast1 = soubor.read(5)
+print(cast1)
+cast2 = soubor.readline()
+print(cast2)
+
+soubor.close()
+"""
+"""
+#Př.1: Zápis textu a čísla
+
+soubor = open("pokus.txt","w")
+soubor.write("dnes je pondělí, \nzítra je úterý,\n")
+soubor.write(str(100000))
+soubor.close()
+"""
+"""
+#Čtení ze souboru řádek po řádku
+soubor = open("text.txt","r")
+cisloR = 0
+for radek in soubor:
+    cisloR +=1
+    print("řádek",cisloR,":", radek,end="")
+soubor.close()
+"""
+#Zápis čísel do sloupců
