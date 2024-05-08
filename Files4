@@ -1,0 +1,70 @@
+#Př.1:
+"""
+soubor1 = open("text.txt","r")
+soubor2 = open("pokus.txt","w")
+
+text = soubor1.read()
+soubor2.write(text[::-1])
+
+soubor1.close()
+soubor2.close()
+"""
+
+#Př.2:
+"""
+znak1 = input("Zadejte znak, který chcete zaměnit: ")
+if len(znak1) != 1:
+    print("Pouze jeden znak!")
+    exit()
+
+znak2 = input("Zadejte znak, kterým chcete nahradit: ")
+if len(znak2) != 1:
+    print("Pouze jeden znak!")
+    exit()
+
+soubor1 = open("text.txt","r")
+soubor2 = open("pokus.txt","w")
+
+text1 = soubor1.read()
+text2 = text1.replace(znak1, znak2)
+soubor2.write(text2)
+
+soubor1.close()
+soubor2.close()
+"""
+
+#Př.3:
+"""
+while True:
+    pismeno = input("Zadejte jedno písmeno, které chcete zapsat: ")
+    if len(pismeno) != 1:
+        print("Pouze jeden znak!")
+        break
+    else:
+        soubor1 = open("PYRAMIDA.txt","w")
+
+        for i in range(1, 101):
+            radek = pismeno * i
+            soubor1.write(radek + '\n')
+
+    soubor1.close()
+"""
+
+#Př.4:
+
+while True:
+    try:
+        n = int(input("Zadejte celé číslo n: "))
+        break
+    except:
+            print("Zadej celé kladné číslo!")
+
+soubor1 = open("cisla.txt","w")
+for i in range(n, 0, -1):
+    soubor1.write(str(i) + '\n')
+
+soucet_cifer = sum(int(c) for c in str(n))
+oddělovač = '-' * soucet_cifer
+soubor1.write(oddělovač + '\n')
+
+soubor1.close()
