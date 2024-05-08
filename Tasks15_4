@@ -1,0 +1,36 @@
+from tkinter import *
+hlavni=Tk()
+hlavni.title("Barvičky")
+
+def Kontrola():
+    kontrola["text"]=seznam[v2.get()-1]
+    kontrola["bg"]=seznam2[v.get()-1]
+    kontrola["fg"]=seznam2[v2.get()-1]
+v = IntVar()
+v.set(1)
+v2 = IntVar()
+v2.set(5)
+seznam=["Černý text","Modrý text","Červený text","Zelený text","Bílý text"]
+seznam2=["black","blue","red","green","white"]
+ram = LabelFrame(hlavni,text="Barva pozadí",bd=2,relief="ridge")
+ram.grid(row=0,rowspan=2)
+Radiobutton(ram,text="Černá",variable=v,value=1).pack(anchor=W)
+Radiobutton(ram,text="Modrá",variable=v,value=2).pack(anchor=W)
+Radiobutton(ram,text="Červená",variable=v,value=3).pack(anchor=W)
+Radiobutton(ram,text="Zelená",variable=v,value=4).pack(anchor=W)
+Radiobutton(ram,text="Bílá",variable=v,value=5).pack(anchor=W)
+
+ram2 = LabelFrame(hlavni,text="Barva písma",bd=2,relief="ridge")
+ram2.grid(row=0,rowspan=2,column=1)
+Radiobutton(ram2,text="Černá",variable=v2,value=1).pack(anchor=W)
+Radiobutton(ram2,text="Modrá",variable=v2,value=2).pack(anchor=W)
+Radiobutton(ram2,text="Červená",variable=v2,value=3).pack(anchor=W)
+Radiobutton(ram2,text="Zelená",variable=v2,value=4).pack(anchor=W)
+Radiobutton(ram2,text="Bílá",variable=v2,value=5).pack(anchor=W)
+
+akce = Button(hlavni,text="Nastav",command=Kontrola)
+akce.grid(row=3,column=1,sticky=S)
+kontrola=Label(hlavni,text="Bílý text",bg="black",fg="white")
+kontrola.grid(row=3,column=0,sticky=S)
+
+hlavni.mainloop()
