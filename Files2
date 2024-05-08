@@ -1,0 +1,40 @@
+import random as r
+
+#Př.1
+nazev = "pokus.txt"
+nazev2 = "kopie.txt"
+s = open(nazev,"r+")
+l = s.read()
+s.close()
+s = open(nazev2,"r+")
+s.write(l)
+s.close()
+
+#Př.2
+nazev = "vstup.txt"
+nazev2 = "vystup.txt"
+s = open(nazev,"r+")
+s2 = open(nazev2,"r+")
+for i in range(100):
+    s.write(str(r.randint(0,99)) + " " + str(r.randint(0,99)) + "\n")
+s.close()
+s = open(nazev,"r+")
+while True:
+    l = s.readline()
+    if l == "":
+        break
+    k = l.split()
+    s2.write(str(k[0]) + " + " + str(k[1]) + " = " + str(int(k[0]) + int(k[1])) + "\n")
+s.close()
+s2.close()
+
+#Př.3
+s = open("pismena.txt","r+")
+l = s.read()
+print(l.upper().count("A"))
+
+#Př.4
+s = open("cisla.txt","r+")
+for i in range(10):
+    a = r.randint(1,100)
+    s.write(str(a) + " " + str(a**2) + "\n")
