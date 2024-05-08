@@ -1,0 +1,43 @@
+from tkinter import *
+from tkinter import filedialog as fld
+
+def Smazat():
+    text.delete(1.0,END)           
+
+def Ulozit():
+    try:
+        save=text.get(1.0,END)
+        cesta1=fld.asksaveasfilename(title="Uložit soubor",defaultextensio="txt")
+        soubor=open(cesta1,"w")
+        cely=soubor.write(save)
+        text.delete(1.0,END)
+        soubor.close()
+    except:
+        pass
+
+def Otevrit():
+    try:
+        cesta2=fld.askopenfilename(title="Otevřít soubor")
+        soubor=open(cesta2,"r")
+        cely=soubor.read()
+        text.delete(1.0,END)
+        text.insert(END,cely)
+        soubor.close()
+    except:
+        pass
+
+hlavni=Tk()
+hlavni.title("Text Editor") 
+
+text=Text(hlavni,font="Arial 10")
+text.focus_set()             
+text.pack()
+
+smazat=Button(hlavni,text="Nový Text",width=10,command=Smazat)
+smazat.pack(padx=5,pady=5,side=LEFT)
+ulozit=Button(hlavni,text="Uložit",width=10,command=Ulozit)
+ulozit.pack(padx=5,pady=5,side=LEFT)
+otevrit=Button(hlavni,text="Otevřít",width=10,command=Otevrit)
+otevrit.pack(padx=5,pady=5,side=LEFT)
+
+hlavni.mainloop()
